@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom modular javascript framework</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+
+	<div class="container">
+		<br><br><br><br>
+		<div class="row" id="newTweet"></div>
+		<br>
+		<div class="row">
+			<div class="col-md-8" id="timeline"></div>
+			<div class="col-md-4">
+				<div class="list-group">
+				  	<a href="#" class="list-group-item disabled">
+				    	Filters:
+				  	</a>
+				  	<div id="filters"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="bower_components/lodash/lodash.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="app/core.js"></script>
+	<script src="app/new_tweet.js"></script>
+	<script src="app/timeline.js"></script>
+	<script src="app/filters.js"></script>
+</body>
+</html>
