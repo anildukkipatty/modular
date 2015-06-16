@@ -12,19 +12,22 @@
 			'a click': 'filter'
 		},
 
+		filters: [],
+
 		init: function () {
+			this.filters = Filters.get();
 			this.fill();
 		},
 
 		filter: function (e) {
 			e.preventDefault();
-			alert($(e.target).text());
+			core.fire('filterTimel', $(e.target).text());
 		},
 
 		fill: function () {
 			var self = this;
 			var html = '';
-			_.forEach(Filters.get(), function (filter) {
+			_.forEach(self.filters, function (filter) {
 				html += self.template(filter);
 			});
 			$('#' + this.name).html(html);
