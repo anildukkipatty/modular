@@ -1,14 +1,13 @@
 (function () {
 	'use strict';
 	
-	var obj = {
+	var app = {
 		name: 'newTweet',
 
 		html: '<div class="col-md-12"> <form class="form-inline"> <div class="form-group"> <input type="text" class="form-control" placeholder="Compose tweet"> </div> <button type="submit" class="btn btn-default">Tweet</button> </form> </div>',
 		
 		handlers: {
-			'form submit': 'addTweet',
-			'#test click': 'test'
+			'form submit': 'addTweet'
 		},
 		
 		addTweet: function (e) {
@@ -24,15 +23,11 @@
 			core.fire('newTweet', data);
 		},
 
-		test: function (e) {
-			alert(1);
-		},
-
 		init: function () {
 			
 		}
 	};
 
-	core.register(obj);
+	core.register(app);
 	
 }());

@@ -21,7 +21,7 @@
 
 		filter: function (e) {
 			e.preventDefault();
-			core.fire('filterTimel', $(e.target).text());
+			core.fire('filterTweet', $(e.target).text());
 		},
 
 		fill: function () {

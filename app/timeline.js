@@ -37,7 +37,9 @@
 		},
 
 		filterTweets: function (filterText) {
-			alert(data);
+			this.tweets = Tweets.filter(filterText);
+
+			this.newTweets();
 		},
 
 		init: function () {

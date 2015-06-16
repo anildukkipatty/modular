@@ -49,40 +49,4 @@ var core = {
 			}
 		return obj;
 	}
-
 };
-
-var Tweets = {
-	get: function () {
-		return [
-			{
-				user: {
-					name: 'Anil Dukkipatty'
-				},
-				body: 'This is some tweet'
-			},
-			{
-				user: {
-					name: 'Chaitanya Dukkipatty'
-				},
-				body: 'lalalalalalal yeah'
-			},
-			{
-				user: {
-					name: 'Sahil Kathpal'
-				},
-				body: 'This is how we roll'
-			}
-		];
-	}
-}
-
-var Filters = {
-	get: function () {
-		return [{name: '#test', link: '#'},
-			{name: '#backbonevsangular', link: '#'},
-			{name: '#emberjs', link: '#'},
-			{name: '#socketio', link: '#'}
-		]
-	}
-}
