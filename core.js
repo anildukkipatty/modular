@@ -7,24 +7,59 @@ var core = {
 	register: function (obj) {
 		var self = this;
 
-		obj = self.attachHandlers(obj);
+		/*
+		* Attach event handlers declared in the module
+		*
+		*/
 
-		this.modules[obj.name] = obj;
+		obj = self.attachHandlers(obj);
 
 		_.forEach(obj.events, function (val, key) {
 			self.eventHandlers[key] = [obj.name, val];
 		});
 
+		/*
+		* Saving the module as an object with it's key
+		* defined by the module name
+		* 
+		*/
+
+		this.modules[obj.name] = obj;
+
+		/*
+		* Check if module has HTML and inject it into DOM
+		* if present
+		*
+		*/
+
 		if (obj.html) {
 			$('#' + obj.name).html(obj.html);
 		}
+
+		/*
+		* Register custom events listners declared in the 
+		* modules
+		*
+		*/
 
 		if (obj.registerEvents) {
 			obj.registerEvents.call(obj);
 		}
 
+		/*
+		* Call the init method of the module
+		*
+		*/
+
 		if (obj.init) obj.init.call(obj);
 	},
+
+	/*
+	* params: String eventName, Obj data
+	* calls the appropriate method on any module
+	* that can respond to the event 
+	*
+	*/
 
 	fire: function (eventName, data) {
 		var events = this.eventHandlers[eventName];
@@ -34,6 +69,12 @@ var core = {
 		if (data) fun.call(module, data);
 		else fun.call(module);
 	},
+
+	/*
+	* params: Module obj
+	* Check for event handlers in a module and attach them
+	*
+	*/
 
 	attachHandlers: function (obj) {
 		obj.registerEvents = function () {
@@ -50,6 +91,12 @@ var core = {
 		return obj;
 	}
 };
+
+/*
+* Abstracting the jQuery ajax calls so that
+* it can be swaped in the futre if necessary
+*
+*/
 
 var Ajax = {
 	get: function (url) {
