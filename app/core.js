@@ -50,3 +50,26 @@ var core = {
 		return obj;
 	}
 };
+
+var Ajax = {
+	get: function (url) {
+		return $.when($.ajax(url));
+	},
+	put: function (url, obj) {
+		return $.when($.ajax(url, {
+			data: obj,
+			method: 'PUT'
+		}));
+	},
+	post: function (url, obj) {
+		return $.when($.ajax(url, {
+			data: obj,
+			method: 'POST'
+		}));
+	},
+	delete: function (url) {
+		return $.when($.ajax(url, {
+			method: 'DELETE'
+		}));
+	}
+};
